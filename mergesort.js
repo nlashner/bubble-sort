@@ -10,35 +10,33 @@ function split (wholeArray) {
 }
 
 
-function merge (firstHalf, secondHalf) {
-  let sortedArr = []
+function merge (firstHalf, secondHalf){
 
-  for (let i = 0; i < firstHalf.length; i++){
-    let first = firstHalf[i]
-    let second = secondHalf[i]
+  let returnArr = []
 
-    console.log("FIRST _______>",first)
-    console.log("SECOND _______>",second)
-    if(first < second){
-      sortedArr.push(first)
-      sortedArr.push(second)
+  while(firstHalf.length >= 1 && secondHalf.length >= 1){
+    if(firstHalf[0] < secondHalf[0]){
+      returnArr.push(firstHalf[0])
+      firstHalf.shift()
     } else {
-      sortedArr.push(second)
-      sortedArr.push(first)
-    }
+      returnArr.push(secondHalf[0])
+      secondHalf.shift()
   }
+}
+if(secondHalf.length){
+  returnArr.push(...secondHalf)
+}
+if(firstHalf.length){
+  returnArr.push(...firstHalf)
+}
 
-  if(secondHalf.length > firstHalf.length){
-  let lastNum = secondHalf[secondHalf.length-1]
-  sortedArr.push(lastNum)
-  }
-
-  return sortedArr
+  return returnArr
 }
 
 
+
 function mergeSort(array){
-debugger;
+
    if ( array.length <= 1){ //------> base case
        return array
    } else {
@@ -50,13 +48,8 @@ debugger;
    }
 }
 
-//console.log(mergeSort([3,5,2,1]))
-console.log(merge([3,5], [1,2]))
+console.log(mergeSort([3,5,2,1,7,10]))
 
-//  [1, 5, 4, 2, 6]
-// [[1, 5], [4, 2, 6]]
-//[[1][5]][[4][2,6]]
-//[1][5][4][2][6]
 
 
 
