@@ -48,7 +48,7 @@ function mergeSort(array){
    }
 }
 
-console.log(mergeSort([3,5,2,1,7,10]))
+console.log(mergeSort([3,4,6,1,3,5]))
 
 
 
